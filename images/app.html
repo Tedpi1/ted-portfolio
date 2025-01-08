@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Age</title>
+</head>
+<body>
+    <h1>Calculate Your Age</h1>
+    <p>Your age is: <span id="age"></span></p>
+
+    <script>
+        // Define your date of birth (year, month, day)
+        const birthYear = 1990; // Replace with your year of birth
+        const birthMonth = 8;   // Replace with your month of birth (1-12)
+        const birthDay = 17;    // Replace with your day of birth (1-31)
+
+        // Get the current date
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth() + 1; // Months are 0-based in JS
+        const currentDay = today.getDate();
+
+        // Calculate age
+        let age = currentYear - birthYear;
+
+        // Adjust age if the birthday hasn't occurred yet this year
+        if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDay < birthDay)) {
+            age--;
+        }
+
+        // Display the age in the HTML
+        document.getElementById("age").textContent = age;
+    </script>
+</body>
+</html>
